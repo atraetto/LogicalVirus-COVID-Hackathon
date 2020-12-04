@@ -127,7 +127,7 @@ model = tf.keras.models.Sequential([
     tf.keras.layers.Dense(2, activation='softmax')
 ])
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['acc'])
-
+model.save('saved_model')
 
 # In[7]:
 
@@ -158,7 +158,7 @@ checkpoint = ModelCheckpoint('model-{epoch:03d}.model',monitor='val_loss',verbos
 
 
 history = model.fit_generator(train_generator,
-                              epochs=30,
+                              epochs=5,
                               validation_data=validation_generator,
                               callbacks=[checkpoint])
 
@@ -217,6 +217,7 @@ while True:
         break
 # Stop video
 webcam.release()
+
 
 # Close all started windows
 cv2.destroyAllWindows()
