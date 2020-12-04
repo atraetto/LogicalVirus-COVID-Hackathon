@@ -9,8 +9,8 @@ def index():
 def result(maskIndicator):
 
   if maskIndicator == '1':
-    door_filename = url_for('static', filename='images/door-open.jpg')
+    door_filename = url_for('static', filename='images/door-open.JPG')
   else:
-    door_filename = url_for('static', filename='images/door-closed.jpg')
+    door_filename = url_for('static', filename='images/door-closed.JPG')
 
   return render_template('result.html', door_image=door_filename)
